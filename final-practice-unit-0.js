@@ -23,14 +23,15 @@ do {
 
 
     if (password === "" || password === null) { 
-        console.log("Password input cancelled.:");
-        break; // use of a falsy value (null) - Lesson 6
+        console.log("Password input cancelled.:"); // use of a falsy value (null) - Lesson 6
+        break;
     }
 
     if (password.length < minLength) {
         console.log("Invalid. Please check password requirements!");
     }
 
+    
     hasNumber = /\d/.test(password); // This variable ensures a number is used.
     hasUpperCase = /[A-Z]/.test(password); // This variable ensures an upper case letter is used.
 } while (password.length < minLength || !hasNumber || !hasUpperCase); // Here I use boolean expressions to determine how the application will flow based on the user meeting the requirements. 
@@ -53,9 +54,9 @@ console.log("Great! Welcome to My Psalm, " + name + ". We have received your bas
     //-----------------------------------------------------------------------------------------------------------
     // This final section of example code includes objects, arrays, and other methods of manipulating strings and arrays.
     // This section is meant to prompt the user to select the profile style (artist or creator), which will help build the foundation for the user's custom profile.
-let userProfile = ["Joshua", "J White", ["618-830-1737", "123 Code Lane", {state: "California"}]] // Here a mixed array is used, containing a nested array, an object, and strings.
+let userProfile = [name, "J White", ["618-830-1737", "123 Code Lane", {state: "California"}]] // Here a mixed array is used, containing a nested array, an object, and strings.
 let userMoniker = userProfile.slice(0, 1); // This string method allows me to create a variable, select and assign the variable with a value from inside the nested array. 
-console.log("Hello, " + userMoniker + ". Our records indicate that you are from" + userProfile[2][2] + ". This information will be publicly visible on your profile.")
+console.log(userMoniker + ", our records indicate that you are from " + userProfile[2][2]["state"] + ". This information will be publicly visible on your profile.")
     // The above console utilizes concatenation to output a confirmation statement. There is also bracket notation, which keeps the console more concise and easier to read. 
 console.log("To further customize your profile, please select whether you will be operating as an artist or creator:")
 let profileChoice = readline.question("Are you an artist or creator?")
